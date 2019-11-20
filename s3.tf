@@ -2,12 +2,12 @@ provider "aws" {
 	region = "eu-west-2"
 }
 
-resource "aws_s3_bucket" "b3" {
-  bucket = "terraform-test-bucket2"
+resource "aws_s3_bucket" "bucket10" {
+  bucket = "something_completely_different"
   acl    = "private"
 
   tags = {
-    Name        = "My fourth bucket - ci test"
+    Name        = "This is something completely different, to avoid confusion"
     Environment = "Dev"
   }
 }

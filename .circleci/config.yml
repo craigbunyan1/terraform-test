@@ -1,0 +1,30 @@
+version: 2
+jobs:
+  hello_world:
+    docker:
+      - image: circleci/python:3.7.4
+    steps:
+      - checkout
+      - run: echo "hello world"
+# validate:
+#   docker:
+#     - image: hashicorp/terraform:0.12.14
+#   steps:
+#     - checkout
+#     - run: terraform init
+# plan_apply:
+#   docker:
+#     - image: hashicorp/terraform:0.12.14
+#   steps:
+#     - checkout
+#     - run: terraform init
+#     - run: terraform plan -input=false -out=tfplan
+#     - run: terraform apply -input=false tfplan
+#workflows:
+# version: 2
+# tf_build:
+#   jobs:
+#     - validate
+#     - plan_apply:
+#         requires:
+#           - validate

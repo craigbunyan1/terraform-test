@@ -1,4 +1,6 @@
 version: 2
+#orbs:
+#  aws-cli: circleci/aws-cli@0.1.17
 jobs:
  validate:
    docker:
@@ -14,6 +16,11 @@ jobs:
      - run: terraform init
      - run: terraform plan -input=false -out=tfplan
      - run: terraform apply -input=false tfplan
+#  copy_files:
+#    executor: aws-cli/default
+#    steps:
+#      - checkout
+#      - run: aws s3 li
 workflows:
  version: 2
  tf_build:

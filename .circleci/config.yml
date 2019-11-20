@@ -6,6 +6,11 @@ jobs:
     steps:
       - checkout
       - run: echo "hello world"
+workflows:
+  version: 2
+  speak:
+    jobs:
+      -hello_world
 # validate:
 #   docker:
 #     - image: hashicorp/terraform:0.12.14

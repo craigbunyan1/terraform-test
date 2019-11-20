@@ -20,7 +20,7 @@ jobs:
     executor: aws-cli/default
     steps:
       - checkout
-#      - aws-cli/install
+      - aws-cli/install
       - run:
           command: "aws s3 ls"
 workflows:

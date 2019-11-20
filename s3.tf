@@ -16,5 +16,6 @@ terraform {
   backend "s3" {
     bucket = "testing-test-tf-bucket-ci"
     key    = "network/terraform.tfstate"
+    region = "eu-west-2"
   }
 }

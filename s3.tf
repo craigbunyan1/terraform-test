@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "bucket10" {
-  bucket = "something_completely_different"
+  bucket = "something-completely-different"
   acl    = "private"
 
   tags = {

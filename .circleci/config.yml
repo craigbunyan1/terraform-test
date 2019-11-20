@@ -21,7 +21,8 @@ jobs:
     steps:
       - checkout
 #      - aws-cli/install
-      - command: aws s3 ls
+      - run:
+          command: "aws s3 ls"
 workflows:
   version: 2.1
   tf_build:

@@ -20,7 +20,7 @@ jobs:
     executor: aws-cli/default
     steps:
       - checkout
-      - run: aws s3 li
+      - run: aws s3 ls
 workflows:
   version: 2.1
   tf_build:

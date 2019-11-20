@@ -12,11 +12,9 @@ resource "aws_s3_bucket" "b3" {
   }
 }
 
-data "terraform_remote_state" "network" {
-  backend = "s3"
-  config = {
+terraform {
+  backend "s3" {
     bucket = "testing-test-tf-bucket-ci"
     key    = "network/terraform.tfstate"
-    region = "eu-west-2"
   }
 }

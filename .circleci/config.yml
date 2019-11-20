@@ -1,16 +1,11 @@
 version: 2
 jobs:
-  hello_world:
+  build:
     docker:
       - image: circleci/python:3.7.4
     steps:
       - checkout
       - run: echo "hello world"
-workflows:
-  version: 2
-  speak:
-    jobs:
-      -hello_world
 # validate:
 #   docker:
 #     - image: hashicorp/terraform:0.12.14

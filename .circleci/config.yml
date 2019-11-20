@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@0.1.17
 jobs:
@@ -22,7 +22,7 @@ jobs:
       - checkout
       - run: aws s3 li
 workflows:
-  version: 2
+  version: 2.1
   tf_build:
     jobs:
       - validate

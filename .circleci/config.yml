@@ -1,34 +1,34 @@
 version: 2
-orbs:
-  aws-cli: circleci/aws-cli@0.1.17
+#orbs:
+#  aws-cli: circleci/aws-cli@0.1.17
 jobs:
- validate:
-   docker:
-     - image: hashicorp/terraform:0.12.14
-   steps:
-     - checkout
-     - run: terraform init
- plan_apply:
-   docker:
-     - image: hashicorp/terraform:0.12.14
-   steps:
-     - checkout
-     - run: terraform init
-     - run: terraform plan -input=false -out=tfplan
-     - run: terraform apply -input=false tfplan
-  copy_files:
-    executor: aws-cli/default
+  validate:
+    docker:
+      - image: hashicorp/terraform:0.12.14
     steps:
       - checkout
-      - run: aws s3 li
+      - run: terraform init
+  plan_apply:
+    docker:
+      - image: hashicorp/terraform:0.12.14
+    steps:
+      - checkout
+      - run: terraform init
+      - run: terraform plan -input=false -out=tfplan
+      - run: terraform apply -input=false tfplan
+#  copy_files:
+#    executor: aws-cli/default
+#    steps:
+#      - checkout
+#      - run: aws s3 li
 workflows:
- version: 2
- tf_build:
-   jobs:
-     - validate
-     - plan_apply:
-         requires:
-           - validate
-     - copy_files:
-         requires:
-           - plan_apply
+  version: 2
+  tf_build:
+    jobs:
+      - validate
+      - plan_apply:
+          requires:
+            - validate
+#      - copy_files:
+#          requires:
+#            - plan_apply

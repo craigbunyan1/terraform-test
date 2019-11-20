@@ -2,7 +2,7 @@ provider "aws" {
 	region = "eu-west-2"
 }
 
-resource "aws_s3_bucket" "b3" {
+resource "aws_s3_bucket" "bucket" {
   bucket = "terraform-test-bucket"
   acl    = "private"
 

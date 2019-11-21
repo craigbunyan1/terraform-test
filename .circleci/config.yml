@@ -24,11 +24,10 @@ jobs:
       - aws-s3/sync:
           from: "."
           to: "s3://something-completely-different"
-          aws-region: "eu-west-2"
+          aws-region: "eu_west_2"
           arguments: |
             --exclude "*" \
             --include "testy*"
-          overwrite: true
 #      - run: aws s3 sync . s3://something-completely-different --exclude "*" --include "s3*"
 workflows:
   version: 2.1

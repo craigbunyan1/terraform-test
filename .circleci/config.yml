@@ -7,14 +7,6 @@ jobs:
       - image: hashicorp/terraform:0.12.14
     steps:
       - checkout
-      - run: cd terraform && terraform init
-      - run: cd terraform && terraform plan -input=false -out=tfplan
-      - run: cd terraform && terraform apply -input=false tfplan
-  plan_apply2:
-    docker:
-      - image: hashicorp/terraform:0.12.14
-    steps:
-      - checkout
       - run:
           command: |
             cd terraform
@@ -32,15 +24,11 @@ jobs:
           arguments: |
             --exclude "*" \
             --include "testy*"
-#      - run: aws s3 sync . s3://something-completely-different --exclude "*" --include "s3*"
 workflows:
   version: 2.1
   tf_build:
     jobs:
       - plan_apply
-      - plan_apply2:
-          requires:
-            - plan_apply
       - copy_files:
           requires:
-            - plan_apply2
+            - plan_apply

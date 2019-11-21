@@ -5,6 +5,10 @@ provider "aws" {
 resource "aws_s3_bucket" "bucket" {
   bucket = "something-completely-different"
   acl    = "private"
+  tags   = {
+            Name        = "Tf test bucket"
+            Environment = "Dev"
+            }
 }
 
 terraform {

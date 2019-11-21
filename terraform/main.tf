@@ -1,5 +1,5 @@
 provider "aws" {
-	region = "eu-west-2"
+	region = var.AWS_REGION
 }
 
 resource "aws_s3_bucket" "bucket" {

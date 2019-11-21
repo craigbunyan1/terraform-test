@@ -22,9 +22,9 @@ jobs:
     steps:
       - checkout
       - aws-s3/sync:
-          from: .
-          to: s3://something-completely-different
-          aws-region: eu_west_2
+          from: "."
+          to: "s3://something-completely-different"
+          aws-region: "eu-west-2"
           arguments: |
             --exclude "*" \
             --include "testy*"

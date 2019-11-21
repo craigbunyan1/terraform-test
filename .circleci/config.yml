@@ -24,7 +24,7 @@ jobs:
       - aws-s3/sync:
           from: "."
           to: "s3://something-completely-different"
-          aws-region: $AWS_REGION
+          aws-region: AWS_REGION
           arguments: |
             --exclude "*" \
             --include "testy*"

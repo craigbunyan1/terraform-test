@@ -13,9 +13,11 @@ jobs:
       - image: hashicorp/terraform:0.12.14
     steps:
       - checkout
+      - run: cd terraform
       - run: terraform init
       - run: terraform plan -input=false -out=tfplan
       - run: terraform apply -input=false tfplan
+      - run: cd..
   copy_files:
     docker:
       - image: circleci/python:2.7

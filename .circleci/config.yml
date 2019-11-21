@@ -8,6 +8,7 @@ jobs:
     steps:
       - checkout
       - run: cd terraform
+      - run: pwd
       - run: terraform init
       - run: terraform plan -input=false -out=tfplan
       - run: terraform apply -input=false tfplan

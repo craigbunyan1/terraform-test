@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  aws-cli: circleci/aws-cli@0.1.17
+  aws-s3: circleci/aws-s3@1.0.11
 jobs:
   validate:
     docker:
@@ -17,11 +17,18 @@ jobs:
       - run: terraform plan -input=false -out=tfplan
       - run: terraform apply -input=false tfplan
   copy_files:
-    executor: aws-cli/default
+    docker:
+      - image: circleci/python:2.7
     steps:
       - checkout
-      - aws-cli/install
-      - run: aws s3 sync . s3://something-completely-different --exclude "*" --include "s3*"
+      - aws-s3/sync:
+          from: .
+          to: s3://something-completely-different
+          arguments: |
+            --exclude "*" \
+            --include "testy*"
+          overwrite: true
+#      - run: aws s3 sync . s3://something-completely-different --exclude "*" --include "s3*"
 workflows:
   version: 2.1
   tf_build:

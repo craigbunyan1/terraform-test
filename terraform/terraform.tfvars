@@ -1,1 +1,1 @@
-AWS_REGION = "eu-west-2"
+AWS_REGION = "us-east-1"

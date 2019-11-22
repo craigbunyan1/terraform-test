@@ -6,7 +6,7 @@ orbs:
 # variables
 
 base_image: &base_image
-  hashicorp/terraform:0.12.6
+  hashicorp/terraform:0.12.14
 
 work_dir: &work_dir
   /tmp/workspace

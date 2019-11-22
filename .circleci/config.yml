@@ -16,9 +16,6 @@ default_config: &default_config
     - image: *base_image
   working_directory: *work_dir
 
-aws_region: &aws_region
-  "eu-west-2"
-
 # steps
 
 jobs:
@@ -40,7 +37,7 @@ jobs:
       - aws-s3/sync:
           from: "."
           to: "s3://something-completely-different"
-          aws-region: *aws_region
+          aws-region: aws_region
           arguments: |
             --exclude "*" \
             --include "testy*"
